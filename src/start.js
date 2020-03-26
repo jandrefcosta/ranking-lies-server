@@ -1,20 +1,14 @@
 const express = require('express')
-var cors = require('cors')
-const app = express()
+const cors = require('cors')
+const routes = require('./routes')
+
 const port = process.env.PORT || 3033
 
-app.use(cors())
+const app = express()
 
-app.get('/', (req, res) => { 
-  res.send('Hello World! ')
-})
+app.use(cors({ origin: true, credentials: true }))
+app.use(express.json())
+app.use(routes)
 
-app.get('/ranking-list', (req, res) => { 
-  res.json([
-    { resumo: "Minha esposa é pica grossa", points: 150 },
-    { resumo: "Fui sequestrado", points: 115 },
-    { resumo: "Vendi um carro ontem também, igual ao seu", points: 45 }
-  ])
-})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

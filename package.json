@@ -2,19 +2,24 @@
   "name": "ranking-lies-server",
   "version": "1.0.0",
   "description": "Servidor do Haking Lies",
-  "main": "index.js",
+  "main": "start.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/start.js",
-    "dev": "nodemon src/start.js"
+    "dev": "nodemon src/start.js",
+    "prettier-watch": "npx prettier --write .",
+    "start": "node src/start.js "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "knex": "^0.20.13",
+    "pg": "^7.18.2",
+    "sqlite3": "^4.1.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "prettier": "2.0.2"
   }
 }
