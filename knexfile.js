@@ -1,9 +1,11 @@
 // Update with your config settings.
 
+require('dotenv').config()
+
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://rdjzvrahylmjfu:9b07ba3820aaf09062f481fd526ad4eaa1bdd256467775af531a7851a1b04645@ec2-34-225-82-212.compute-1.amazonaws.com:5432/d4s1nrblstsd9a?ssl=true',
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: './src/database/migrations/'
     },
@@ -12,7 +14,7 @@ module.exports = {
 
   staging: {
     client: 'postgresql',
-    connection: 'postgres://rdjzvrahylmjfu:9b07ba3820aaf09062f481fd526ad4eaa1bdd256467775af531a7851a1b04645@ec2-34-225-82-212.compute-1.amazonaws.com:5432/d4s1nrblstsd9a?ssl=true',
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10,
@@ -24,7 +26,7 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: 'postgres://rdjzvrahylmjfu:9b07ba3820aaf09062f481fd526ad4eaa1bdd256467775af531a7851a1b04645@ec2-34-225-82-212.compute-1.amazonaws.com:5432/d4s1nrblstsd9a?ssl=true',
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10,
