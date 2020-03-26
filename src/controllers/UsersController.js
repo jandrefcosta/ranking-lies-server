@@ -8,7 +8,6 @@ module.exports = {
     },
 
     async create(request, response) {
-
         const { email, senha } = request.body
         const alreadyRegistered = await connection('users').where('email', email).select('*').first()
         if (alreadyRegistered) {
