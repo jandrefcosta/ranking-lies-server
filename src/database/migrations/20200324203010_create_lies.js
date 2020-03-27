@@ -6,6 +6,7 @@ exports.up = function (knex) {
     table.string('descricao').notNullable();
     table.string('pontos').defaultTo(0)
     table.string('user_id').notNullable();
+    table.timestamp('created_at').defaultTo(knex.fn.now());
     table.foreign('user_id').references('id').inTable('users')
   })
 };

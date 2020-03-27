@@ -27,9 +27,7 @@ module.exports = {
         } else if (user_id !== lie.user_id) {
             return response.status(401).json({ error: 'Operation not permited' })
         }
-
         await connection('lies').where('id', id).delete();
-
-        return response.status(204).send()
+        return response.status(200).json({ "status": true })
     }
 }
